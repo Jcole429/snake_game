@@ -3,6 +3,10 @@ from constant import *
 import random
 
 
+def round_to_nearest_20(num):
+    return 20 * round(num / 20)
+
+
 class Food(Turtle):
     def __init__(self):
         super().__init__()
@@ -14,6 +18,6 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
-        random_x = random.randint(LEFT_LIMIT, RIGHT_LIMIT)
-        random_y = random.randint(BOTTOM_LIMIT, TOP_LIMIT)
+        random_x = round_to_nearest_20(random.randint(LEFT_LIMIT, RIGHT_LIMIT))
+        random_y = round_to_nearest_20(random.randint(BOTTOM_LIMIT, TOP_LIMIT))
         self.goto(random_x, random_y)
